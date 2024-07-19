@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>ユーザー情報検索</title>
+</head>
+<body>
+    <h1>S.O.N.G.所属シンフォギア奏者情報検索</h1>
+    <h3>奏者検索</h3>
+    <form th:action="@{/user/id_search}" th:object="${user_info}"
+        th:method="post">
+        <div>
+            奏者No.入力：<input type="text" name="id" size="40"/>
+        </div>
+        <div>
+            <input type="submit" value="SEARCH" style="width: 100px"/>
+        </div>
+    </form>
+    <form th:action = "@{/user}" th:method = "get">
+        <div>
+            <input type = "submit" value = "TO TOP" style = "width: 100px"/>
+        </div>
+    </form>
+    <div th:if="${user_info}">
+        <table th:object="${user_info}">
+            <tr>
+                <th class="cell_title">オーダー：</th>
+                <td th:text="第 + *{id} + 奏者" ></td>
+            </tr>
+            <tr>
+                <th class="cell_title">適合者：</th>
+                <td th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <th class="cell_title">GEAR：</th>
+                <td th:text="*{symphogear_name}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <form th:action = "@{/user/delete/id={id}(id=*{id})}" th:method = "delete" th:object = "${user_info}">
+                        <input type = "submit" value = "DELETE" style = "width: 75px"/>
+                    </form>
+                </td>
+                <td>
+                    <form th:action = "@{/user/conf/id={id}(id=*{id})}" th:method = "put" th:object = "${user_info}">
+                        <input type = "submit" value = "UPDATE" style = "width: 75px"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

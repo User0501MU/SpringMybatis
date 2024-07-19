@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>新奏者登録</title>
+</head>
+<body>
+    <h2>新適合者登録画面</h2>
+    <form th:action="@{/user/add_comp}" th:object="${user_add}"
+        th:method="post">
+        <div>
+            ID : <input type="text" name="id" size="40"/>
+        </div>
+        <br>
+        <div>
+            NAME:<input type="text" name="name" size="40"/>
+        </div>
+        <br>
+        <div>
+            GEAR:<input type="text" name="symphogear_name" size="40"/>
+        </div>
+        <div>
+            <input type="submit" value="SING UP" style="width: 100px"/>
+        </div>
+        <br/>
+    </form>
+</body>
+</html>

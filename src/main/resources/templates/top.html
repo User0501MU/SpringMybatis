@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>新規登録ページ</title>
+</head>
+<body>
+    <h1>S.O.N.G.所属シンフォギア奏者データベース</h1>
+    <h3>新奏者登録</h3>
+    <form th:action = "@{/user/add}" th:method = "post">
+        <div>
+            <input type = "submit" value = "TO SING UP FORM" style = "width: 150px"/>
+        </div>
+    </form>
+    <h3>奏者検索</h3>
+    <form th:action = "@{/user/search}" th:method = "get">
+        <div>
+            <input type = "submit" value = "TO SEARCH FORM" style = "width: 150px"/>
+        </div>
+    </form>
+    <h3>全奏者リスト</h3>
+        <form th:action = "@{/user/list}" th:method = "post">
+        <div>
+            <input type = "submit" value = "PLAYER LIST" style = "width: 105px"/>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>ユーザー情報変更</title>
+</head>
+<body>
+<h1>奏者情報編集</h1>
+    <table th:object = "${user_select}">
+        <tr>
+            <th class="cell_title">オーダー：</th>
+            <td th:text="第 + *{id} + 奏者" ></td>
+        </tr>
+    </table>
+    <form th:action = "@{/user/edit/id={id}(id = *{id})}" th:object="${user_select}" th:method = "post">
+        <label>奏者名:<input type="text" th:field="*{name}"></label><br>
+        <label>GEAR:<input type="text" th:field="*{symphogear_name}"></label><br>
+        <button>EDIT</button>
+    </form>
+
+
+</body>
+</html>

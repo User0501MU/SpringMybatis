@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>ユーザー情報検索</title>
+</head>
+<body>
+<h1>全奏者リスト表示</h1>
+<form th:action = "@{/user}" th:method = "get">
+    <div>
+        <input type = "submit" value = "TO TOP" style = "width: 100px"/>
+    </div>
+</form>
+<div th:if="${users_info}">
+    <table th:each="users_info:${users_info}" th:object="${users_info}">
+        <tr>
+            <th class="cell_title">オーダー：</th>
+            <td th:text="第+*{id}+奏者"></td>
+        </tr>
+        <tr>
+            <th class="cell_title">適合者：</th>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <th class="cell_title">GEAR：</th>
+            <td th:text="*{symphogear_name}"></td>
+        </tr>
+        <table>
+            <tr>
+                <td>
+                    <form th:action = "@{/user/delete/id={id}(id=*{id})}" th:method = "delete">
+                    <input type = "submit" value = "DELETE" style = "width: 75px"/>
+                    </form>
+                </td>
+                <td>
+                    <form th:action = "@{/user/conf/id={id}(id=*{id})}" th:method = "put">
+                        <input type = "submit" value = "UPDATE" style = "width: 75px"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </table>
+</div>
+</body>
+</html

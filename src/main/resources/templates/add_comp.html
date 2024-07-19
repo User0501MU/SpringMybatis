@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>登録完了</title>
+</head>
+<body>
+    <h1>REGISTRATION COMPLETE!!</h1>
+    <div th:if="${user_add}">
+        <h3>登録奏者情報</h3>
+        <table th:object="${user_add}">
+            <tr>
+                <th class="cell_title">オーダー：</th>
+                <td th:text="第 + *{id} + 奏者"></td>
+            </tr>
+            <tr>
+                <th class="cell_title">適合者：</th>
+                <td th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <th class="cell_title">GEAR：</th>
+                <td th:text="*{symphogear_name}"></td>
+            </tr>
+        </table>
+    </div>
+    <form th:action = "@{/user}" th:method = "get">
+        <div>
+            <input type = "submit" value = "TO TOP" style = "width: 100px"/>
+        </div>
+    </form>
+</body>
+</html>
