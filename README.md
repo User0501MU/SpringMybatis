@@ -27,6 +27,9 @@ mysql> SELECT * FROM symphogear_players;
 ___________________________________________________
 UserMapper.java
 //★symphogear_playersがテーブル
+
     @Insert("INSERT INTO symphogear_players(id,name,symphogear_name)"
+    
             + "VALUES (#{id},#{name},#{symphogear_name})")
+            
     void create(UserSearchRequest userAdd);
