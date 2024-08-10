@@ -8,17 +8,27 @@ mysql> SHOW DATABASES;
 mysql> CREATE DATABASE SpringMybatis;
 
 --テーブル内を確認（この時点で作成されていない）
+
 SELECT * FROM springmybatis;
+
 --playersがあれば削除(ないのでテーブルを作成）
+
 DROP TABLE IF EXISTS symphogear_players;
 
 ・テーブル作成
+
 mysql> CREATE TABLE IF NOT EXISTS symphogear_players(
+
     -> id VARCHAR(20) NOT NULL,
+    
     -> name VARCHAR(20) NOT NULL,
+    
     -> symphogear_name VARCHAR(20) NOT NULL,
+    
     -> PRIMARY KEY(id)
+    
     -> );
+    
 Query OK, 0 rows affected (0.04 sec)
 
 ・テーブル内容確認
